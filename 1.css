@@ -1,0 +1,47 @@
+.header {
+    background-color: red;
+    grid-area: h;
+}
+.menu {
+	background-color: yellow;
+    grid-area: m;
+}
+.content {
+	background-color: orange;
+    grid-area: c;
+}
+.footer {
+    background-color: green;
+    grid-area: f;
+}
+.container {
+    display: grid;
+    /* grid-template-columns: 50px 50px 50px 50px; */
+    /* grid-template-rows: auto; */
+/*
+    grid-template-areas: 
+        "header heaer header header"
+        "main main . sidebar"
+        "footer footer footer footer";
+*/
+    /*display: subgrid; nếu container là 1 phần tử trong grid*/
+    /*create a grid with twelve columns, mỗi phần được chia là 1/12 so với tổng chiều dài.*/
+     grid-template-columns: repeat(12, 1fr); 
+    /*tạo 3 hàng, cái đầu 50px cao, cái thứ 2 là 350px, cái thứ 3 là 50px*/
+     grid-template-rows: auto auto auto; 
+    /*Khoảng cách giữa các grid*/
+    grid-gap: 6px;
+    grid-template-areas: 
+        ". h h h h h h h h h h ."
+        "c c c c c c c c c c m m"
+        ". f f f f f f f f f f .";
+    
+}
+@media screen and (max-width: 640px) {
+    .container {
+	    grid-template-areas: 
+            "m m m m m m h h h h h h"
+            "c c c c c c c c c c c c"
+            "f f f f f f f f f f f f";
+    }
+}
